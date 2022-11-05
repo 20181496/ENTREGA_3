@@ -14,8 +14,11 @@ Este breve reporte tiene como objetivo hacer un analisis de correlacion entre el
 + Todo ello con el objetivo de entender en mayor profundidad las dinámicas del comportamiento político-electoral a nivel subnacional, específicamente en la provincia de Lima. 
 
 A continuación, se llevarán a cabo los siguientes análisis:
+
 - Realizar un análisis descriptivo de los resultados a nivel mundial
+
 - Aplicar técnicas de reducción de dimensiones para agrupar a los distritos en función a sus características sociodemográficas
+
 - Implementar técnicas multivariadas para modelar el comportamiento del voto, particularmente de la organización ganadora
 
 
@@ -46,7 +49,7 @@ data="https://github.com/taiyonoJoel/LIMPIEZA/raw/main/dataunificada.csv"
 data=import(data)
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE,include=FALSE}
 data(desempleojuv, filter = "PBI")
 ```
 
@@ -88,8 +91,10 @@ H0: No todos o ningun de los indicadores presentan una significancia y no tienen
 H1: Todos los indicadores muestran ser significantes y tienen un efecto relevante dentro de los modelos realizados.
 
 + Una vez revisamos los p-valores de cada modelo podemos ver que ambos modelos funcionan correctamente, lo que nos permite revisar cada modelo para confirmar que la hipotesis nula se ve rechazada. 
-+Una vez revisados ambos modelos, sin embargo, vemos que unicamente una de las variables se destaca como significante, en este caso es la variable del PBI como se puede ver en el modelo 1 y 2, este ultimo se concentra en esa variable independiente. Entonces con la hipotesis nula presente, tomamos en cuenta que tanto explican ambos modelos, 0.07087 y 0.06999 respectivamente. Estos valores son el porcentaje explicativo de cada modelo y vemos que hay una diferencia infima cuando vemos el cambio del primer modelo con el segundo: la adicion de las demas variables, obesidad, gasto en educacion y el transito no poseen un efecto significante en el desempleo juvenil a nivel mundial. 
-+Con estas conclusiones preliminares, vemos que los factores que toman en consideracion Veronica Espinoza para su revision de la obesidad como una barrera para el desempleo no se pueden aplicar en un marco a nivel global en comparacion a los utilizados en Ecuador, de la misma manera ocurre en el Perú con Cesar Calvo y su postura con respecto a los gastos en educacion y el ingreso recibido; los autores que realizaron sus investigaciones no es que no sean correctos, pero sus modelos de estudio no se pueden aplicar correctamente a nivel global.
+
++ Una vez revisados ambos modelos, sin embargo, vemos que unicamente una de las variables se destaca como significante, en este caso es la variable del PBI como se puede ver en el modelo 1 y 2, este ultimo se concentra en esa variable independiente. Entonces con la hipotesis nula presente, tomamos en cuenta que tanto explican ambos modelos, 0.07087 y 0.06999 respectivamente. Estos valores son el porcentaje explicativo de cada modelo y vemos que hay una diferencia infima cuando vemos el cambio del primer modelo con el segundo: la adicion de las demas variables, obesidad, gasto en educacion y el transito no poseen un efecto significante en el desempleo juvenil a nivel mundial. 
+
++ Con estas conclusiones preliminares, vemos que los factores que toman en consideracion Veronica Espinoza para su revision de la obesidad como una barrera para el desempleo no se pueden aplicar en un marco a nivel global en comparacion a los utilizados en Ecuador, de la misma manera ocurre en el Perú con Cesar Calvo y su postura con respecto a los gastos en educacion y el ingreso recibido; los autores que realizaron sus investigaciones no es que no sean correctos, pero sus modelos de estudio no se pueden aplicar correctamente a nivel global.
   
 ```{r echo=FALSE}
 equatiomatic::extract_eq(modelo2, use_coefs = TRUE)
