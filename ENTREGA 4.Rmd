@@ -27,6 +27,14 @@ library(lmtest)
 library(nortest)
 ```
 
++ Este breve reporte tiene como objetivo hacer un analizis de correlacion entre el desempleo juvenil (de jovenes de 16 a 24 años) con la infraestructura de carreteras, la obesidad en adultos, la inversion extranjera, los gastos en educacion publica y el PBI de 160 paises en el año 2018. Esto se realizara por medio de la creacion de modelos de regresion lineal para ver cuales variables tienen un impacto sobre la variable dependiente (Desempleo juvenil). 
++ Todo ello con el objetivo de entender en mayor profundidad las dinámicas del comportamiento político-electoral a nivel subnacional, específicamente en la provincia de Lima. 
+
+A continuación, se llevarán a cabo los siguientes análisis:
+- Realizar un análisis descriptivo de los resultados a nivel mundial
+- Aplicar técnicas de reducción de dimensiones para agrupar a los distritos en función a sus características sociodemográficas
+- Implementar técnicas multivariadas para modelar el comportamiento del voto, particularmente de la organización ganadora
+
 
 
 ```{r include=FALSE}
@@ -73,13 +81,15 @@ summary(modelo2)
 ```
 
 Manteniendo todas las variables fijas
-(hipótesis)	H0:
-			H1:
-+ Al revisar los p-values (4.05e-05), (0.00265) los cuales son menores a 0.05, rechazamos la H0. Por lo que a un 95% de confianza las variables independientes (PBI) y (geseco) tienen impacto significativo en la variable dependiente (desempleo). 
-
-Pero al revisar los p-values (0.1330), (0.25868) de las otras variables independientes (inverex) y (tugurio), respectivamente, advertimos que es mayor a 0.05, a saber, no aporta significativamente al modelo2. Por tanto, se recomienda construir un modelo de regresión sin las variables mencionadas. Pese a ello, para la interpretacón lo tomaremos en cuenta. Así se determina que el modelo2 solo es válido para predecir el desempleo de un persona, en este caso, a partir del crecimiento del PBI y la gestión económica de su respectivo país. 
-
-  + El modelo2 ayuda a predecir el 33% de la variabilidad de la variable desempleo de una persona. Cabe precisar que si quitamos las varaibles no signficativas del modelo de regresión, el Adjusted R-squared se mantiene casi igual. Por lo que podemos concluir que es un modelo medianamente bueno/decente.
+(hipótesis)	
+H0: No todos o ningun de los indicadores presentan una significancia y no tienen un efecto relevante para explicar a la variable dependiento dentro de los modelos realizados
+H1: Todos los indicadores muestran ser significantes y tienen un efecto relevante dentro de los modelos realizados.
+			
+			
+			+ Una vez revisamos los p-valores de cada modelo podemos ver que ambos modelos funcionan correctamente, lo que nos permite revisar cada modelo para confirmar que la hipotesis nula se ve rechazada. 
+			+Una vez revisados ambos modelos, sin embargo, vemos que unicamente una de las variables se destaca como significante, en este caso es la variable del PBI como se puede ver en el modelo 1 y 2, este ultimo se concentra en esa variable independiente. Entonces con la hipotesis nula presente, tomamos en cuenta que tanto explican ambos modelos, 0.07087 y 0.06999 respectivamente. Estos valores son el porcentaje explicativo de cada modelo y vemos que hay una diferencia infima cuando vemos el cambio del primer modelo con el segundo: la adicion de las demas variables, obesidad, gasto en educacion y el transito no poseen un efecto significante en el desempleo juvenil a nivel mundial. 
+			+Con estas conclusiones preliminares, vemos que los factores que toman en consideracion Veronica Espinoza para su revision de la obesidad como una barrera para el desempleo no se pueden aplicar en un marco a nivel global en comparacion a los utilizados en Ecuador, de la misma manera ocurre en el Perú con Cesar Calvo y su postura con respecto a los gastos en educacion y el ingreso recibido; los autores que realizaron sus investigaciones no es que no sean correctos, pero sus modelos de estudio no se pueden aplicar correctamente a nivel global.
+			
   
 ```{r echo=FALSE}
 equatiomatic::extract_eq(modelo2, use_coefs = TRUE)
